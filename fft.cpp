@@ -54,11 +54,11 @@ void split(complex<double> *inputs, int N)
        a sampled function amplitude 
    N : the length of x must be a power of 2 
 */
+
 void fast_fourier(complex<double>* x, double N)
 {
 	/* base of recursion */
-	if (N == 1)
-		return;
+	if (N == 1)return;
 	
 	/* no rounding needed if N is base 2 */
 	int n = N/2;
@@ -94,6 +94,47 @@ void fast_fourier(complex<double>* x, double N)
 		w = w*wn;
 	}	
 }
+
+void ifft(complex<double>* x, double N)
+{
+	/* base of recursion */
+	if (N == 1)return;
+	
+	/* no rounding needed if N is base 2 */
+	int n = N/2;
+
+	/* set primitive root of unity */
+	complex<double> wn = exp((-2*pi*i)/N)/N;
+	complex<double> w = 1;
+
+	/* move odd and evened indexed to each half
+	   of array x */
+	split(x, 2*n);
+	
+	/* even and odd */	
+	fast_fourier(x, n);
+	/* pass pointer starting
+	at the n/2th element */
+	fast_fourier(x+n, n);
+
+	complex<double> even(0,0);
+	complex<double> odd(0,0);
+
+	for (int k = 0; k < n; k++)
+	{
+		/* code */
+		even = x[k];
+		odd = x[k+n]; /* k + N/2 */
+
+		x[k] = even + w*odd;
+		x[k+n] = even - w*odd;
+
+		/* multiply same as k+1 
+		   in exponent */
+		w = w*wn;
+	}	
+}
+
 
 /* calculated the magnitude of a complex number 
    returned by the fft */
