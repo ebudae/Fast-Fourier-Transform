@@ -112,10 +112,10 @@ void ifft(complex<double>* x, double N)
 	split(x, 2*n);
 	
 	/* even and odd */	
-	fast_fourier(x, n);
+	ifft(x, n);
 	/* pass pointer starting
 	at the n/2th element */
-	fast_fourier(x+n, n);
+	ifft(x+n, n);
 
 	complex<double> even(0,0);
 	complex<double> odd(0,0);
