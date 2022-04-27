@@ -47,8 +47,6 @@ windows:
 
 # How to graph:
 	python plot.py data.txt
-or 
-	py plot.py data.txt
 
 
 TWEAKING:
