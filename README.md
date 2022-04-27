@@ -1,12 +1,17 @@
 # Fast-Fourier-Transform
+
 A C++ Implementation of the Fast Fourier Transform. Written using the radix 2 Cooley and Tukey Aglorithm. Also includes graphing in python.
 
-# file overview
+
+# File overview
+
 + fft.cpp : the main and only C++ file needed for the fast fourier transform
 + data.txt : contains the output of the last fft run
 + plot.py : python code to plot the contents of data.txt
 
-# dependencies:
+
+# Dependencies:
+
 + plot.py requires the 'matplotlib' for graphing
 easy to obtain by pip:
 	python -m pip matplotlib
@@ -14,7 +19,9 @@ or
 	py -m pip matplotlib
 + (if using windows) must have the visual studio c++ tools
 
-# compilation:
+
+# Compilation:
+
 linux/mac:
 	simply run: 
 	g++ fft.cpp -o fft
@@ -27,16 +34,18 @@ windows:
 	cl fft.cpp
 	5. you should now have an fft.exe in the folder
 
-# to run:
+# How to run:
 linux:
 	./fft
+
 windows:
 	fft.exe
 
-# to graph:
+# How to graph:
 	python plot.py data.txt
 or 
 	py plot.py data.txt
+
 
 TWEAKING:
 The 'samples' variable in Main can be changed for a higher upper bound
