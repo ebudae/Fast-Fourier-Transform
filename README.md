@@ -23,9 +23,12 @@ or
 # Compilation:
 
 linux/mac:
+
 	simply run: 
 	g++ fft.cpp -o fft
+	
 windows:
+
 	1. type 'C++' into desktop search bar e.g cortana for windows 10
 	2. select 'Visual C++ [YEAR] [32/64 bit] Command prompt'
 	(if this doesn't work try 'Developer command prompt for VS [YEAR]')
@@ -33,6 +36,7 @@ windows:
 	4. run:
 	cl fft.cpp
 	5. you should now have an fft.exe in the folder
+
 
 # How to run:
 linux:
